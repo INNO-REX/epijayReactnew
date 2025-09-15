@@ -105,8 +105,7 @@ const ProductsSlideshow = () => {
               key={index}
               className={`slide ${index === currentSlide ? 'active' : ''}`}
               style={{ 
-                display: index === currentSlide ? 'block' : 'none',
-                transition: 'opacity 0.5s ease-in-out'
+                display: index === currentSlide ? 'block' : 'none'
               }}
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl max-w-xl w-full">
