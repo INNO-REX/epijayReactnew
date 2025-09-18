@@ -1,8 +1,8 @@
-# 🚀 EPIJAY Website - Hosting Provider Deployment Package
+# 🚀 EPIJAY Website - Static Website Deployment Package
 
 ## 📋 **Project Overview**
 
-This is a complete React website for **EPIJAY Limited** with integrated contact form that sends emails to `sales@epijay.com` using your SMTP server.
+This is a complete React website for **EPIJAY Limited** - a modern, responsive static website showcasing the company's products and services.
 
 ## 🏗️ **Project Structure**
 
@@ -12,16 +12,13 @@ epijayReact/
 │   ├── components/               # Reusable UI components
 │   ├── pages/                   # Page components
 │   ├── layouts/                 # Layout components
-│   ├── services/                # Email service integration
 │   ├── utils/                   # Utility functions
 │   └── assets/                  # Images and static files
 ├── public/                      # Static public files
-├── server-secure.js            # Secure backend API server
 ├── package.json                 # Dependencies and scripts
 ├── tailwind.config.js          # Tailwind CSS configuration
 ├── postcss.config.js           # PostCSS configuration
 ├── vite.config.js              # Vite build configuration
-├── .env.example                # Environment variables template
 ├── .gitignore                  # Git ignore rules
 └── README.md                   # This file
 ```
@@ -31,15 +28,12 @@ epijayReact/
 ### **Server Requirements:**
 - **Node.js**: Version 18+ (recommended: 20.x)
 - **NPM**: Version 8+ (comes with Node.js)
-- **PM2**: Process manager (will be installed)
 - **Nginx**: Web server (for production)
 - **SSL Certificate**: For HTTPS
 
 ### **Ports Needed:**
-- **Port 3001**: Backend API server
 - **Port 80**: HTTP (redirects to HTTPS)
 - **Port 443**: HTTPS (main website)
-- **Port 465**: SMTP (outbound email)
 
 ## 📦 **Dependencies**
 
@@ -50,17 +44,33 @@ epijayReact/
 - Alpine.js 3.15.0
 - Vite 4.5.0
 
-### **Backend Dependencies:**
-- Express 5.1.0
-- Nodemailer 7.0.6
-- CORS 2.8.5
-- Helmet (security)
-- Express Rate Limit
-- Express Validator
-
 ## 🚀 **Deployment Instructions**
 
-### **Step 1: Server Setup**
+### **Option 1: Static Hosting (Recommended)**
+
+1. **Build the project**:
+   ```bash
+   npm install
+   npm run build
+   ```
+
+2. **Upload the `dist/` folder** to your web server
+
+3. **Configure your web server** to serve the static files
+
+### **Option 2: Docker Deployment**
+
+1. **Build Docker image**:
+   ```bash
+   docker build -t epijay-website .
+   ```
+
+2. **Run the container**:
+   ```bash
+   docker run -d -p 80:80 --name epijay-website epijay-website
+   ```
+
+### **Option 3: Traditional Server Deployment**
 
 1. **Install Node.js 18+**:
    ```bash
@@ -73,12 +83,7 @@ epijayReact/
    sudo yum install -y nodejs
    ```
 
-2. **Install PM2 globally**:
-   ```bash
-   sudo npm install -g pm2
-   ```
-
-3. **Install Nginx**:
+2. **Install Nginx**:
    ```bash
    # Ubuntu/Debian
    sudo apt update
@@ -88,76 +93,20 @@ epijayReact/
    sudo yum install nginx
    ```
 
-### **Step 2: Upload and Install**
-
-1. **Upload the project files** to your server (e.g., `/var/www/epijay`)
-
-2. **Install dependencies**:
+3. **Upload and build the project**:
    ```bash
+   # Upload files to /var/www/epijay
    cd /var/www/epijay
-   npm install --production
-   ```
-
-3. **Build the frontend**:
-   ```bash
+   npm install
    npm run build
    ```
 
-### **Step 3: Environment Configuration**
-
-1. **Create environment file**:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. **Edit the .env file** with your SMTP credentials:
-   ```bash
-   nano .env
-   ```
-
-   **Required values:**
-   ```env
-   NODE_ENV=production
-   PORT=3001
-   FRONTEND_URL=https://your-domain.com
-   
-   SMTP_HOST=email.kpbs.co.zm
-   SMTP_PORT=465
-   SMTP_USERNAME=sales@epijay.com
-   SMTP_PASSWORD=@2025JayZ33
-   
-   FROM_EMAIL=sales@epijay.com
-   REPLY_TO_EMAIL=support@epijay.com
-   NOREPLY_EMAIL=noreply@epijay.com
-   ```
-
-### **Step 4: PM2 Configuration**
-
-1. **Start the API server**:
-   ```bash
-   pm2 start server-secure.js --name "epijay-api"
-   ```
-
-2. **Configure PM2 to start on boot**:
-   ```bash
-   pm2 startup
-   pm2 save
-   ```
-
-3. **Monitor the server**:
-   ```bash
-   pm2 status
-   pm2 logs epijay-api
-   ```
-
-### **Step 5: Nginx Configuration**
-
-1. **Create Nginx configuration**:
+4. **Configure Nginx**:
    ```bash
    sudo nano /etc/nginx/sites-available/epijay
    ```
 
-2. **Add this configuration**:
+   **Add this configuration**:
    ```nginx
    server {
        listen 80;
@@ -194,43 +143,21 @@ epijayReact/
            }
        }
        
-       # Backend API
-       location /api/ {
-           proxy_pass http://localhost:3001;
-           proxy_http_version 1.1;
-           proxy_set_header Upgrade $http_upgrade;
-           proxy_set_header Connection 'upgrade';
-           proxy_set_header Host $host;
-           proxy_set_header X-Real-IP $remote_addr;
-           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-           proxy_set_header X-Forwarded-Proto $scheme;
-           proxy_cache_bypass $http_upgrade;
-           
-           # Timeout settings
-           proxy_connect_timeout 60s;
-           proxy_send_timeout 60s;
-           proxy_read_timeout 60s;
-       }
-       
        # Security: Block access to sensitive files
        location ~ /\. {
-           deny all;
-       }
-       
-       location ~ \.(env|log)$ {
            deny all;
        }
    }
    ```
 
-3. **Enable the site**:
+5. **Enable the site**:
    ```bash
    sudo ln -s /etc/nginx/sites-available/epijay /etc/nginx/sites-enabled/
    sudo nginx -t
    sudo systemctl reload nginx
    ```
 
-### **Step 6: SSL Certificate**
+### **SSL Certificate Setup**
 
 1. **Install Certbot**:
    ```bash
@@ -263,22 +190,9 @@ sudo ufw enable
 # Set proper permissions
 sudo chown -R www-data:www-data /var/www/epijay
 sudo chmod -R 755 /var/www/epijay
-sudo chmod 600 /var/www/epijay/.env
 ```
 
 ## 📊 **Monitoring & Maintenance**
-
-### **PM2 Monitoring**:
-```bash
-# View logs
-pm2 logs epijay-api
-
-# Monitor resources
-pm2 monit
-
-# Restart if needed
-pm2 restart epijay-api
-```
 
 ### **Nginx Monitoring**:
 ```bash
@@ -292,66 +206,45 @@ sudo tail -f /var/log/nginx/error.log
 
 ## 🧪 **Testing**
 
-### **Test the API**:
-```bash
-curl -X POST https://your-domain.com/api/send-email \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Test User",
-    "email": "test@example.com",
-    "subject": "Test Subject",
-    "message": "This is a test message"
-  }'
-```
-
 ### **Test the Website**:
 1. Visit `https://your-domain.com`
-2. Navigate to Contact page
-3. Fill out and submit the contact form
-4. Check `sales@epijay.com` for the email
+2. Navigate through all pages
+3. Test responsive design on mobile devices
+4. Verify all images load correctly
 
 ## 🔧 **Troubleshooting**
 
 ### **Common Issues**:
 
-1. **API not responding**:
-   - Check PM2 status: `pm2 status`
-   - Check logs: `pm2 logs epijay-api`
-   - Restart: `pm2 restart epijay-api`
-
-2. **Nginx errors**:
-   - Test config: `sudo nginx -t`
+1. **Website not loading**:
+   - Check Nginx status: `sudo systemctl status nginx`
    - Check logs: `sudo tail -f /var/log/nginx/error.log`
+   - Verify file permissions
 
-3. **Email not sending**:
-   - Check SMTP credentials in `.env`
-   - Test SMTP connection
-   - Check firewall allows port 465
-
-4. **SSL issues**:
+2. **SSL issues**:
    - Renew certificate: `sudo certbot renew`
    - Check certificate: `sudo certbot certificates`
+
+3. **Images not loading**:
+   - Check file paths in `src/assets/`
+   - Verify images exist in `dist/assets/`
 
 ## 📋 **Deployment Checklist**
 
 - [ ] Node.js 18+ installed
 - [ ] Project files uploaded
-- [ ] Dependencies installed (`npm install --production`)
+- [ ] Dependencies installed (`npm install`)
 - [ ] Frontend built (`npm run build`)
-- [ ] Environment variables configured (`.env`)
-- [ ] PM2 configured and running
 - [ ] Nginx configured and running
 - [ ] SSL certificate installed
 - [ ] Firewall configured
 - [ ] File permissions set
-- [ ] Contact form tested
-- [ ] Email delivery verified
-- [ ] Monitoring set up
+- [ ] Website tested on all devices
+- [ ] All pages and images loading correctly
 
 ## 📞 **Support Contacts**
 
 - **Technical Issues**: Contact your system administrator
-- **Email Problems**: Check SMTP server logs
 - **Domain Issues**: Contact your domain registrar
 
 ## 🎯 **Post-Deployment**
@@ -359,11 +252,19 @@ curl -X POST https://your-domain.com/api/send-email \
 After successful deployment:
 
 1. **Monitor logs** for any errors
-2. **Test contact form** regularly
-3. **Check email delivery** to sales@epijay.com
-4. **Monitor server resources** (CPU, memory, disk)
-5. **Set up automated backups**
-6. **Schedule SSL certificate renewal**
+2. **Test website functionality** regularly
+3. **Monitor server resources** (CPU, memory, disk)
+4. **Set up automated backups**
+5. **Schedule SSL certificate renewal**
+
+## 🌟 **Features**
+
+- **Responsive Design**: Works on all devices
+- **Modern UI**: Clean, professional design
+- **Fast Loading**: Optimized for performance
+- **SEO Friendly**: Proper meta tags and structure
+- **Contact Information**: Display contact details
+- **Product Showcase**: Highlight services and products
 
 ---
 
