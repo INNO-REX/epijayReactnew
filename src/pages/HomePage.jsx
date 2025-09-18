@@ -4,6 +4,8 @@ import safetyImage from '../assets/Safety & Protective Solutions.jpg'
 import industrialImage from '../assets/Industrial & Engineering Supplies.jpg'
 import electricalImage from '../assets/Electrical & Energy Solutions.jpg'
 import chemicalImage from '../assets/Chemical & Environmental Solutions.jpg'
+import cleaningImage from '../assets/cleaning materials.png'
+import corporateImage from '../assets/corporate branding.png'
 import ProductsSlideshow from '../components/ProductsSlideshow'
 import { contactInfo, businessHours } from '../utils/data'
 
@@ -193,6 +195,60 @@ const HomePage = () => {
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">Chemical</span>
                   <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Environmental</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Cleaning Chemicals */}
+            <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
+              <div className="relative h-48 sm:h-56 overflow-hidden">
+                <img 
+                  src={cleaningImage}
+                  alt="Cleaning Chemicals"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent"></div>
+                <div className="absolute top-4 left-4">
+                  <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">Cleaning Chemicals</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">Comprehensive range of cleaning chemicals for various industrial, commercial, and domestic applications.</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-green-100 text-green-700 text-xs rounded-full">Cleaning</span>
+                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Chemicals</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Corporate Clothing & Branding */}
+            <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
+              <div className="relative h-48 sm:h-56 overflow-hidden">
+                <img 
+                  src={corporateImage}
+                  alt="Corporate Clothing & Branding"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
+                <div className="absolute top-4 left-4">
+                  <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">Corporate Clothing & Branding</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">Professional corporate clothing and branding solutions to strengthen your company's image and identity.</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Corporate</span>
+                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Branding</span>
                 </div>
               </div>
             </div>

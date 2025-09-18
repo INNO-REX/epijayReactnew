@@ -3,9 +3,8 @@
 ## 📋 **Project Summary**
 
 **Client**: EPIJAY Limited  
-**Project**: Corporate Website with Contact Form  
-**Email Destination**: sales@epijay.com  
-**SMTP Server**: email.kpbs.co.zm  
+**Project**: Corporate Website  
+**Website**: Company information and contact details
 
 ## 🎯 **What You're Deploying**
 
@@ -14,16 +13,15 @@ This is a **React-based corporate website** for EPIJAY Limited, a Zambian procur
 - **Homepage**: Company overview with service highlights
 - **About Page**: Company story, vision, mission, and values
 - **Services Page**: Detailed service offerings
-- **Contact Page**: Contact form that sends emails to `sales@epijay.com`
+- **Contact Page**: Contact information and office locations
 
 ## 🔧 **Technical Specifications**
 
 ### **Architecture**
 - **Frontend**: React 19.1.1 with Vite build system
-- **Backend**: Node.js Express API server
+- **Backend**: Node.js Express API server (minimal)
 - **Styling**: Tailwind CSS with custom animations
-- **Email**: Nodemailer with SMTP integration
-- **Security**: Rate limiting, input validation, CORS protection
+- **Security**: CORS protection
 
 ### **Server Requirements**
 - **Node.js**: Version 18+ (recommended: 20.x)
@@ -36,11 +34,8 @@ This is a **React-based corporate website** for EPIJAY Limited, a Zambian procur
 {
   "dependencies": {
     "express": "^5.1.0",
-    "nodemailer": "^7.0.6",
     "cors": "^2.8.5",
     "helmet": "^7.1.0",
-    "express-rate-limit": "^7.1.5",
-    "express-validator": "^7.0.1",
     "dotenv": "^17.2.2"
   }
 }
@@ -74,20 +69,11 @@ npm run build
 ```
 
 ### **Step 3: Environment Configuration**
-Create `.env` file with these **exact values**:
+Create `.env` file with these values:
 ```env
 NODE_ENV=production
 PORT=3001
 FRONTEND_URL=https://your-domain.com
-
-SMTP_HOST=email.kpbs.co.zm
-SMTP_PORT=465
-SMTP_USERNAME=sales@epijay.com
-SMTP_PASSWORD=@2025JayZ33
-
-FROM_EMAIL=sales@epijay.com
-REPLY_TO_EMAIL=support@epijay.com
-NOREPLY_EMAIL=noreply@epijay.com
 ```
 
 ### **Step 4: Start Services**
@@ -136,12 +122,9 @@ server {
 ## 🔒 **Security Features**
 
 ### **Implemented Security Measures**
-- ✅ **Rate Limiting**: 5 requests per 15 minutes per IP
-- ✅ **Input Validation**: All form fields validated
-- ✅ **XSS Protection**: Malicious scripts blocked
 - ✅ **CORS Protection**: Only your domain can access API
 - ✅ **Security Headers**: Comprehensive protection
-- ✅ **Environment Variables**: Credentials secured
+- ✅ **Environment Variables**: Configuration secured
 
 ### **Firewall Configuration**
 ```bash
@@ -151,47 +134,19 @@ sudo ufw allow 443   # HTTPS
 sudo ufw enable
 ```
 
-## 📧 **Email Configuration**
-
-### **SMTP Settings**
-- **Host**: email.kpbs.co.zm
-- **Port**: 465 (SSL)
-- **Username**: sales@epijay.com
-- **Password**: @2025JayZ33
-- **From**: sales@epijay.com
-- **Reply-To**: Client's email (for easy responses)
-
-### **Email Flow**
-1. Client fills contact form on website
-2. Form submits to `/api/send-email` endpoint
-3. Backend sends email to `sales@epijay.com`
-4. Client receives success confirmation
-5. EPIJAY receives formatted email with all details
-
 ## 🧪 **Testing Procedures**
 
 ### **API Testing**
 ```bash
 # Health check
 curl https://your-domain.com/api/health
-
-# Test email endpoint
-curl -X POST https://your-domain.com/api/send-email \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Test User",
-    "email": "test@example.com",
-    "subject": "Test Subject",
-    "message": "This is a test message"
-  }'
 ```
 
 ### **Website Testing**
 1. Visit `https://your-domain.com`
 2. Test all navigation links
-3. Fill out contact form
-4. Verify email received at `sales@epijay.com`
-5. Test responsive design on mobile
+3. Verify contact information is displayed
+4. Test responsive design on mobile
 
 ## 📊 **Monitoring & Maintenance**
 
@@ -224,20 +179,10 @@ sudo systemctl reload nginx    # Reload config
    - Check PM2 status: `pm2 status`
    - Check logs: `pm2 logs epijay-api`
 
-2. **Emails Not Sending**
-   - Verify SMTP credentials in `.env`
-   - Test SMTP connection
-   - Check firewall allows port 465
-
-3. **Website Not Loading**
+2. **Website Not Loading**
    - Check Nginx status: `sudo systemctl status nginx`
    - Test configuration: `sudo nginx -t`
    - Check SSL certificate
-
-4. **Contact Form Not Working**
-   - Check API endpoint: `curl https://your-domain.com/api/health`
-   - Check CORS configuration
-   - Verify frontend build: `ls -la dist/`
 
 ## 📋 **Deployment Checklist**
 
@@ -259,8 +204,8 @@ sudo systemctl reload nginx    # Reload config
 
 ### **Post-Deployment**
 - [ ] Website loads correctly
-- [ ] Contact form functions
-- [ ] Emails sent to sales@epijay.com
+- [ ] All pages display correctly
+- [ ] Contact information is visible
 - [ ] SSL certificate working
 - [ ] Monitoring set up
 
@@ -271,11 +216,6 @@ sudo systemctl reload nginx    # Reload config
 - **Contact**: sales@epijay.com
 - **Location**: Zambia
 - **Industry**: Procurement & Supply Chain
-
-### **Technical Contacts**
-- **SMTP Server**: email.kpbs.co.zm
-- **Email**: sales@epijay.com
-- **Support**: support@epijay.com
 
 ### **Important Files**
 - **API Server**: `server-secure.js`
@@ -288,8 +228,7 @@ sudo systemctl reload nginx    # Reload config
 The deployment is successful when:
 - ✅ Website loads at `https://your-domain.com`
 - ✅ All pages display correctly
-- ✅ Contact form submits successfully
-- ✅ Emails reach `sales@epijay.com`
+- ✅ Contact information is displayed
 - ✅ SSL certificate is valid
 - ✅ No console errors
 - ✅ Mobile responsive design works
@@ -298,6 +237,6 @@ The deployment is successful when:
 
 ## 🎉 **Ready for Deployment!**
 
-This package contains everything needed to deploy the EPIJAY website securely and professionally. Follow the instructions step-by-step, and you'll have a fully functional corporate website with integrated email capabilities.
+This package contains everything needed to deploy the EPIJAY website securely and professionally. Follow the instructions step-by-step, and you'll have a fully functional corporate website.
 
 **Good luck with the deployment!** 🚀
