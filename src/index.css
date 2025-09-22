@@ -38,3 +38,32 @@ body {
 .slide.active {
   opacity: 1;
 }
+
+/* Mobile Responsiveness Improvements */
+@media (max-width: 640px) {
+  .animate-fade-in-up {
+    animation-duration: 0.6s;
+  }
+  
+  /* Ensure proper spacing on mobile */
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .text-lg {
+    font-size: 1rem;
+  }
+}

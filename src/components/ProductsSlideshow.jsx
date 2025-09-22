@@ -96,7 +96,7 @@ const ProductsSlideshow = () => {
   }
 
   return (
-    <div className="relative overflow-hidden h-[600px]">
+    <div className="relative overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
       <div className="slideshow-container h-full">
         {slides.map((slide, index) => {
           const colors = getColorClasses(slide.color)
@@ -108,21 +108,21 @@ const ProductsSlideshow = () => {
                 display: index === currentSlide ? 'block' : 'none'
               }}
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl max-w-xl w-full">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl max-w-xs sm:max-w-sm md:max-w-xl w-full mx-2 sm:mx-0">
                 <div className="text-center">
-                  <div className={`w-14 h-14 ${colors.bg} rounded-full flex items-center justify-center mx-auto mb-5`}>
-                    <svg className={`w-7 h-7 ${colors.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 ${colors.bg} rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-5`}>
+                    <svg className={`w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 ${colors.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={getIconPath(slide.color)}></path>
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{slide.title}</h3>
-                  <p className={`${colors.accent} text-lg mb-5 leading-relaxed`}>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">{slide.title}</h3>
+                  <p className={`${colors.accent} text-sm sm:text-base md:text-lg mb-4 sm:mb-5 leading-relaxed`}>
                     {slide.description}
                   </p>
-                  <div className="space-y-2 text-sm text-gray-200">
+                  <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-200">
                     {slide.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center justify-center">
-                        <div className={`w-2 h-2 ${colors.dot} rounded-full mr-2`}></div>
+                        <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 ${colors.dot} rounded-full mr-2`}></div>
                         {feature}
                       </div>
                     ))}

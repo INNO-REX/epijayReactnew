@@ -45,25 +45,25 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 animate-fade-in-up leading-tight" style={{ animationDelay: '0.2s' }}>
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 animate-fade-in-up leading-tight" style={{ animationDelay: '0.2s' }}>
                 <span className="bg-gradient-to-r from-sky-300 via-orange-300 to-sky-200 bg-clip-text text-transparent">
                   EPIJAY LIMITED
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up px-4 sm:px-0" style={{ animationDelay: '0.4s' }}>
                 Your trusted partner for <span className="text-sky-300 font-semibold">logistical support</span> and
                 <span className="text-orange-300 font-semibold"> supply chain solutions</span> across Zambia and beyond
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up justify-center lg:justify-start" style={{ animationDelay: '0.6s' }}>
-                <a href="#services" className="group bg-sky-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:bg-sky-600 transition-all duration-300 shadow-2xl hover:shadow-sky-500/25 transform hover:-translate-y-1 backdrop-blur-sm">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 animate-fade-in-up justify-center lg:justify-start px-4 sm:px-0" style={{ animationDelay: '0.6s' }}>
+                <a href="#services" className="group bg-sky-500 text-white px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base md:text-lg hover:bg-sky-600 transition-all duration-300 shadow-2xl hover:shadow-sky-500/25 transform hover:-translate-y-1 backdrop-blur-sm text-center">
                   Explore Our Products
                   <svg className="inline-block w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                   </svg>
                 </a>
-                <a href="#contact" className="group border-2 border-white/30 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:bg-white hover:text-sky-900 transition-all duration-300 backdrop-blur-sm hover:shadow-2xl">
+                <a href="#contact" className="group border-2 border-white/30 text-white px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base md:text-lg hover:bg-white hover:text-sky-900 transition-all duration-300 backdrop-blur-sm hover:shadow-2xl text-center">
                   Get In Touch
                 </a>
               </div>
@@ -90,7 +90,7 @@ const HomePage = () => {
           </div>
 
           {/* Services Grid */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {/* Safety & Protective Solutions */}
             <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
               <div className="relative h-48 sm:h-56 overflow-hidden">

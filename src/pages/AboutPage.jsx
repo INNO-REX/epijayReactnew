@@ -2,20 +2,20 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-4">
             About EPIJAY Limited
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             A proudly Zambian-owned enterprise, with the majority of its shares held by a female stakeholder. 
             Established to provide unique logistical and supply chain support across Zambia, Africa, and the global market.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-            <p className="text-lg text-gray-600 mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Our Story</h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
               EPIJAY Limited is a proudly Zambian-owned enterprise, with the majority of its shares held 
               by a female stakeholder. Established to provide unique logistical and supply chain support, 
               the company has grown into a trusted partner for both local and international clients.
