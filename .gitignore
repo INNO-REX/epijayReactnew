@@ -93,3 +93,14 @@ Thumbs.db
 # Temporary files
 tmp/
 temp/
+
+# Docker images and large files
+*.tar
+*.tar.gz
+*.tar.bz2
+epijay-website-*.tar
+
+# Docker files
+Dockerfile*
+docker-compose*
+.dockerignore
