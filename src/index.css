@@ -6,6 +6,11 @@
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Custom Animations */
