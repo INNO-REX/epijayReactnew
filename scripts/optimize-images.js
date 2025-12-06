@@ -57,7 +57,9 @@ function getConfig(filename) {
 async function optimizeImage(inputPath, outputPath, config) {
   try {
     const originalSize = fs.statSync(inputPath).size
-    const tempPath = outputPath + '.tmp'
+    // Preserve file extension in temp path so Sharp can determine format
+    const ext = path.extname(outputPath)
+    const tempPath = outputPath.replace(ext, `.tmp${ext}`)
     
     const image = sharp(inputPath)
     const metadata = await image.metadata()
@@ -99,7 +101,8 @@ async function optimizeImage(inputPath, outputPath, config) {
   } catch (error) {
     console.error(`✗ Error optimizing ${inputPath}:`, error.message)
     // Clean up temp file if it exists
-    const tempPath = outputPath + '.tmp'
+    const ext = path.extname(outputPath)
+    const tempPath = outputPath.replace(ext, `.tmp${ext}`)
     if (fs.existsSync(tempPath)) {
       fs.unlinkSync(tempPath)
     }
@@ -137,7 +140,14 @@ async function optimizeAllImages() {
   
   console.log('\n' + '='.repeat(50))
   console.log(`Total: ${(totalOriginalSize / 1024 / 1024).toFixed(2)}MB → ${(totalOptimizedSize / 1024 / 1024).toFixed(2)}MB`)
-  console.log(`Overall reduction: ${((1 - totalOptimizedSize / totalOriginalSize) * 100).toFixed(1)}%`)
+  
+  // Guard against division by zero
+  if (totalOriginalSize > 0) {
+    console.log(`Overall reduction: ${((1 - totalOptimizedSize / totalOriginalSize) * 100).toFixed(1)}%`)
+  } else {
+    console.log('Overall reduction: N/A (no images were optimized)')
+  }
+  
   console.log('✅ Image optimization complete!')
 }
 

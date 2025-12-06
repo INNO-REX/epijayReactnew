@@ -99,7 +99,8 @@ const ServicesCarousel = () => {
         border: 'border-sky-500',
         hover: 'hover:bg-sky-600',
         dot: 'bg-sky-500',
-        tag: 'bg-sky-100 text-sky-700'
+        tag: 'bg-sky-100 text-sky-700',
+        shadowHover: 'hover:shadow-sky-500/50'
       },
       orange: {
         text: 'text-orange-400',
@@ -107,7 +108,8 @@ const ServicesCarousel = () => {
         border: 'border-orange-500',
         hover: 'hover:bg-orange-600',
         dot: 'bg-orange-500',
-        tag: 'bg-orange-100 text-orange-700'
+        tag: 'bg-orange-100 text-orange-700',
+        shadowHover: 'hover:shadow-orange-500/50'
       },
       purple: {
         text: 'text-purple-400',
@@ -115,7 +117,8 @@ const ServicesCarousel = () => {
         border: 'border-purple-500',
         hover: 'hover:bg-purple-600',
         dot: 'bg-purple-500',
-        tag: 'bg-purple-100 text-purple-700'
+        tag: 'bg-purple-100 text-purple-700',
+        shadowHover: 'hover:shadow-purple-500/50'
       }
     }
     return colors[accentColor] || colors.sky
@@ -181,7 +184,7 @@ const ServicesCarousel = () => {
             <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <Link
                 to="/services"
-                className={`inline-flex items-center ${accent.bg} text-white px-8 py-4 rounded-xl font-semibold text-lg ${accent.hover} transition-all duration-300 shadow-2xl hover:shadow-${currentService.accentColor}-500/50 transform hover:-translate-y-1`}
+                className={`inline-flex items-center ${accent.bg} text-white px-8 py-4 rounded-xl font-semibold text-lg ${accent.hover} transition-all duration-300 shadow-2xl ${accent.shadowHover} transform hover:-translate-y-1`}
               >
                 Learn More
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
