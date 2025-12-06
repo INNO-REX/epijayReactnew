@@ -7,8 +7,8 @@ const AboutPage = () => {
             About EPIJAY Limited
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A proudly Zambian-owned enterprise, with the majority of its shares held by a female stakeholder. 
-            Established to provide unique logistical and supply chain support across Zambia, Africa, and the global market.
+            At Epijay Limited, fire safety is at the heart of what we do. As a proudly Zambian-owned company, 
+            we specialize in the supply of high-quality firefighting equipment and safety solutions to organizations across Zambia.
           </p>
         </div>
 
@@ -16,19 +16,22 @@ const AboutPage = () => {
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
             <p className="text-lg text-gray-600 mb-6">
-              EPIJAY Limited is a proudly Zambian-owned enterprise, with the majority of its shares held 
-              by a female stakeholder. Established to provide unique logistical and supply chain support, 
-              the company has grown into a trusted partner for both local and international clients.
+              At Epijay Limited, fire safety is at the heart of what we do. As a proudly Zambian-owned company, 
+              we specialize in the supply of high-quality firefighting equipment and safety solutions to 
+              organizations across Zambia. Whether you operate in mining, industrial, commercial, or public 
+              sectors, we are committed to delivering the critical fire protection tools you need reliably, 
+              efficiently, and in full compliance with safety standards.
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              Headquartered in Lusaka, with additional offices in Chingola and Solwezi, EPIJAY Limited 
-              is strategically positioned to deliver reliable procurement and supply solutions across 
-              Zambia, Africa, and the global market.
+              With offices in Lusaka, Chingola, and Solwezi, we are strategically positioned to serve clients 
+              nationwide, ensuring rapid response and timely delivery to even the most remote operations. Our 
+              main focus is to bridge the gap between businesses and the products or services they need, by 
+              sourcing quality, hard-to-find items with speed, efficiency, and cost-effectiveness.
             </p>
             <p className="text-lg text-gray-600">
-              Our growing network of partners is proof of the trust we continue to build in the market, 
-              serving diverse clientele across industries such as mining, construction, manufacturing, 
-              logistics, energy, and government institutions.
+              We serve a diverse clientele across industries such as mining, construction, manufacturing, 
+              logistics, energy, and government institutions. Our growing network of partners is proof of 
+              the trust we continue to build in the market.
             </p>
           </div>
           <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg p-8">
@@ -38,13 +41,15 @@ const AboutPage = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
               <p className="text-gray-600 mb-6">
-                To become a leading regional procurement and supply chain company, recognized for 
-                reliability, innovation, and customer-focused service.
+                To be the most trusted provider of life-saving fire safety solutions and effective corporate 
+                branding, empowering businesses to protect, perform, and stand out with confidence.
               </p>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
               <p className="text-gray-600">
-                To bridge the gap between businesses and the products or services they need, by sourcing 
-                quality, hard-to-find items with speed, efficiency, and cost-effectiveness.
+                We are committed to safeguarding lives and enhancing brand identity by delivering high quality 
+                fire-fighting equipment, professional corporate wear, and innovative branding solutions. Through 
+                reliability, customization, and excellence, we help organizations stay safe, look sharp, and 
+                leave a lasting impression.
               </p>
             </div>
           </div>
@@ -183,6 +188,64 @@ const AboutPage = () => {
               <h3 className="text-xl font-bold text-red-900 mb-4 group-hover:text-rose-700 transition-colors duration-300">Industry Expertise</h3>
               <p className="text-red-700 leading-relaxed">
                 Deep knowledge across diverse industries including mining, construction, manufacturing, logistics, energy, and government institutions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* How We Work Section */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">How We Work</h2>
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            At Epijay Limited, our approach is built on efficiency, transparency, and customer satisfaction. 
+            We believe in delivering solutions that align perfectly with our clients' needs and expectations.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Step 1 */}
+            <div className="group bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-2 text-center">
+              <div className="bg-gradient-to-br from-blue-500 to-indigo-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-2xl">1</span>
+              </div>
+              <h3 className="text-xl font-bold text-blue-900 mb-3 group-hover:text-indigo-700 transition-colors duration-300">Understanding Your Needs</h3>
+              <p className="text-blue-700 leading-relaxed">
+                We begin by engaging with our clients to gain a deep understanding of their requirements, 
+                objectives, and challenges.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="group bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:border-green-400 transition-all duration-300 hover:-translate-y-2 text-center">
+              <div className="bg-gradient-to-br from-green-500 to-emerald-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-2xl">2</span>
+              </div>
+              <h3 className="text-xl font-bold text-green-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">Planning & Strategy</h3>
+              <p className="text-green-700 leading-relaxed">
+                Based on the information gathered, we develop a clear plan and strategy tailored to achieve 
+                the best results in the most efficient way.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="group bg-gradient-to-br from-orange-50 to-amber-100 border border-orange-200 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:border-orange-400 transition-all duration-300 hover:-translate-y-2 text-center">
+              <div className="bg-gradient-to-br from-orange-500 to-amber-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-2xl">3</span>
+              </div>
+              <h3 className="text-xl font-bold text-orange-900 mb-3 group-hover:text-amber-700 transition-colors duration-300">Execution & Delivery</h3>
+              <p className="text-orange-700 leading-relaxed">
+                Our skilled team implements the plan with precision, ensuring that every step meets our 
+                high-quality standards and is delivered on time.
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div className="group bg-gradient-to-br from-purple-50 to-violet-100 border border-purple-200 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:border-purple-400 transition-all duration-300 hover:-translate-y-2 text-center">
+              <div className="bg-gradient-to-br from-purple-500 to-violet-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-2xl">4</span>
+              </div>
+              <h3 className="text-xl font-bold text-purple-900 mb-3 group-hover:text-violet-700 transition-colors duration-300">Feedback & Continuous Improvement</h3>
+              <p className="text-purple-700 leading-relaxed">
+                We welcome client feedback and use it to refine our processes, ensuring we consistently 
+                exceed expectations and remain innovative in our solutions.
               </p>
             </div>
           </div>

@@ -12,8 +12,8 @@ const ContactPage = () => {
             Contact EPIJAY Limited
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get in touch with us to discuss your procurement and supply chain needs. 
-            We're here to help you find the right solutions for your business.
+            Get in touch with us to discuss your fire safety and equipment needs. 
+            We're here to help you protect lives and property with reliable firefighting solutions.
           </p>
         </div>
 
@@ -41,10 +41,10 @@ const ContactPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-blue-900 mb-2 group-hover:text-indigo-700 transition-colors duration-300">Head Office - Lusaka</h3>
+                      <h3 className="text-lg font-bold text-blue-900 mb-2 group-hover:text-indigo-700 transition-colors duration-300">Lusaka Branch</h3>
                       <p className="text-blue-700 mb-2">
-                        Plot No. 7128 House No. 6<br />
-                        Zambezi Road, Roma<br />
+                        Office No: Unit G07 Premium House<br />
+                        Independence Avenue<br />
                         Lusaka, Zambia
                       </p>
                     </div>
@@ -112,8 +112,7 @@ const ContactPage = () => {
                     <div>
                       <p className="font-bold text-blue-900 group-hover:text-indigo-700 transition-colors duration-300">Email</p>
                       <p className="text-blue-700">sales@epijay.com</p>
-                      <p className="text-blue-700">admin@epijay.com</p>
-                      <p className="text-blue-700">support@epijay.com</p>
+                      <p className="text-blue-700">www.epijay.com</p>
                     </div>
                   </div>
                 </div>
@@ -127,8 +126,8 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <p className="font-bold text-green-900 group-hover:text-emerald-700 transition-colors duration-300">Phone</p>
-                      <p className="text-green-700">Airtel: 057 1795 471</p>
-                      <p className="text-green-700">MTN: 0964 380 945</p>
+                      <p className="text-green-700">Airtel: 057 2270 992</p>
+                      <p className="text-green-700">MTN: 076 6744 392</p>
                       <p className="text-green-700">Zamtel: 0957 483 353</p>
                     </div>
                   </div>

@@ -12,7 +12,9 @@
     "server:secure": "node server-secure.js",
     "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
     "dev:secure": "concurrently \"npm run server:secure\" \"npm run dev\"",
-    "start": "node server-secure.js"
+    "start": "node server-secure.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "prebuild": "npm run optimize-images"
   },
   "dependencies": {
     "alpinejs": "^3.15.0",
@@ -38,6 +40,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17",
     "vite": "^4.5.0"
   }

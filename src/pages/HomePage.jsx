@@ -1,12 +1,7 @@
 import { Link } from 'react-router-dom'
 import homepageImage from '../assets/homepage.jpg'
-import safetyImage from '../assets/Safety & Protective Solutions.jpg'
-import industrialImage from '../assets/Industrial & Engineering Supplies.jpg'
-import electricalImage from '../assets/Electrical & Energy Solutions.jpg'
-import chemicalImage from '../assets/Chemical & Environmental Solutions.jpg'
-import cleaningImage from '../assets/cleaning materials.png'
-import corporateImage from '../assets/corporate branding.png'
 import ProductsSlideshow from '../components/ProductsSlideshow'
+import ServicesCarousel from '../components/ServicesCarousel'
 import { contactInfo, businessHours } from '../utils/data'
 
 const HomePage = () => {
@@ -21,6 +16,9 @@ const HomePage = () => {
             alt="Professional team working together"
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.7) contrast(1.1)' }}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-sky-900/80 via-orange-900/70 to-sky-800/80"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -52,8 +50,8 @@ const HomePage = () => {
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                Your trusted partner for <span className="text-sky-300 font-semibold">logistical support</span> and
-                <span className="text-orange-300 font-semibold"> supply chain solutions</span> across Zambia and beyond
+                At Epijay Limited, <span className="text-sky-300 font-semibold">fire safety</span> is at the heart of what we do.
+                As a proudly Zambian-owned company, we specialize in the supply of high-quality <span className="text-orange-300 font-semibold">firefighting equipment</span> and safety solutions across Zambia.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up justify-center lg:justify-start" style={{ animationDelay: '0.6s' }}>
@@ -78,193 +76,41 @@ const HomePage = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-sky-50/30 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="services" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-sky-50/30 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 -right-20 w-96 h-96 bg-gradient-to-br from-sky-200/20 to-orange-200/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 -left-20 w-96 h-96 bg-gradient-to-tr from-orange-200/20 to-sky-200/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Our <span className="bg-gradient-to-r from-sky-600 to-orange-500 bg-clip-text text-transparent">Products & Services</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
-              We offer a comprehensive range of products and services designed to save your company time and effort in sourcing hard-to-find items.
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
+              Epijay Limited is a trusted provider specializing in the supply of high-quality firefighting equipment and related safety solutions. Committed to protecting lives and property, we deliver reliable products tailored to meet the demanding needs of fire safety professionals, industrial operations, and public institutions.
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
-            {/* Safety & Protective Solutions */}
-            <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="relative h-48 sm:h-56 overflow-hidden">
-                <img 
-                  src={safetyImage}
-                  alt="Safety & Protective Solutions"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-sky-900/50 to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 bg-sky-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-sky-600 transition-colors">Safety & Protective Solutions</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">Personal Protective Equipment (PPE), firefighting equipment, and security products built for reliability.</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Safety Equipment</span>
-                  <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">Protective</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Industrial & Engineering Supplies */}
-            <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="relative h-48 sm:h-56 overflow-hidden">
-                <img 
-                  src={industrialImage}
-                  alt="Industrial & Engineering Supplies"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/50 to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">Industrial & Engineering Supplies</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">Welding equipment, engineering spares, hardware, and conveyor accessories for critical systems.</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">Industrial</span>
-                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Engineering</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Electrical & Energy Solutions */}
-            <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="relative h-48 sm:h-56 overflow-hidden">
-                <img 
-                  src={electricalImage}
-                  alt="Electrical & Energy Solutions"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-sky-900/50 to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 bg-sky-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-sky-600 transition-colors">Electrical & Energy Solutions</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">Quality electronics, electrical parts, and efficient solar equipment for modern power needs.</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Electrical</span>
-                  <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">Energy</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Chemical & Environmental Solutions */}
-            <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="relative h-48 sm:h-56 overflow-hidden">
-                <img 
-                  src={chemicalImage}
-                  alt="Chemical & Environmental Solutions"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/50 to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">Chemical & Environmental Solutions</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">Safe, effective chemicals with expert guidance and Environmental Hazardous Material Management.</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">Chemical</span>
-                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Environmental</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Cleaning Chemicals */}
-            <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="relative h-48 sm:h-56 overflow-hidden">
-                <img 
-                  src={cleaningImage}
-                  alt="Cleaning Chemicals"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">Cleaning Chemicals</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">Comprehensive range of cleaning chemicals for various industrial, commercial, and domestic applications.</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-green-100 text-green-700 text-xs rounded-full">Cleaning</span>
-                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Chemicals</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Corporate Clothing & Branding */}
-            <div className="group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="relative h-48 sm:h-56 overflow-hidden">
-                <img 
-                  src={corporateImage}
-                  alt="Corporate Clothing & Branding"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">Corporate Clothing & Branding</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">Professional corporate clothing and branding solutions to strengthen your company's image and identity.</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Corporate</span>
-                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Branding</span>
-                </div>
-              </div>
-            </div>
+          {/* Services Carousel */}
+          <div className="mb-12">
+            <ServicesCarousel />
           </div>
 
           {/* Call to Action */}
           <div className="text-center mt-12 sm:mt-16">
-            <p className="text-lg text-gray-600 mb-6">Need something specific? We source hard-to-find items across all industries.</p>
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Whether you operate in mining, industrial, commercial, or public sectors, we are committed to delivering the critical fire protection tools you need reliably, efficiently, and in full compliance with safety standards.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/services" className="group bg-orange-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <Link to="/services" className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 Browse Categories
                 <svg className="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                 </svg>
               </Link>
-              <Link to="/contact" className="group bg-sky-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-sky-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <Link to="/contact" className="group bg-gradient-to-r from-sky-500 to-sky-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-sky-600 hover:to-sky-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 Request a Quote
                 <svg className="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>

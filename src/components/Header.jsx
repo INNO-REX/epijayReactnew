@@ -22,6 +22,9 @@ const Header = () => {
                 src={logoImage} 
                 alt="EPIJAY Limited" 
                 className="h-10 w-auto"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </Link>
           </div>
